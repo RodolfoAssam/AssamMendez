@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="peticionparametros.css">
+</head>
+
+<body>
+    <select id="selectCategoria"></select>
+    <button id="btnPeticion" class="boton">Obtener Chiste</button>
+
+    <div id="divRespuesta"></div>
+
+    <script>
+        async function llenarCategorias() {
+            const selectCategoria = document.getElementById("selectCategoria");
+
+            try {
+                const response = await fetch("https://api.chucknorris.io/jokes/categories");
+                const categorias = await response.json();
+
+                categorias.forEach(categoria => {
+                    const option = document.createElement("option");
+                    option.value = categoria;
+                    option.textContent = categoria;
+                    selectCategoria.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error al obtener las categorías:', error);
+            }
+        }
+
+        llenarCategorias();
+
+        document.getElementById("btnPeticion").addEventListener("click", async function () {
+            const selectCategoria = document.getElementById("selectCategoria");
+            const divRespuesta = document.getElementById("divRespuesta");
+
+            const categoriaSeleccionada = selectCategoria.value;
+
+            try {
+                const response = await fetch(`https://api.chucknorris.io/jokes/random?category=${categoriaSeleccionada}`);
+                const data = await response.json();
+
+                divRespuesta.textContent = data.value;
+            } catch (error) {
+                console.error('Error al obtener el chiste:', error);
+            }
+        });
+    </script>
+</body>
+
+</html>
