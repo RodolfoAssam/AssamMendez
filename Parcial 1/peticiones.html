@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="peticiones.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <div id="titulo">Chistes con tematica de Halloween y Navidad</div>
+    <button id="btnPeticion" class="boton">Peticion Async</button>
+    <button id="btnPeticionPromesa" class="boton">Petición Fetch Promises </button>
+    <button id="btnPeticionXMLHttp" class="boton">Petición XMLHttp </button>
+    <button id="btnPeticionAxios" class="boton">Petición Axios </button>
+    <button id="btnPeticionJQuery" class="boton">Petición JQuery </button>
+
+    <div id="resultado"></div>
+
+    <script>
+        const resultadoDiv = document.getElementById("resultado");
+
+        document.getElementById("btnPeticion").addEventListener("click", async function () {
+            let headersList = {
+                "Accept": "*/*",
+                "User-Agent": "Thunder Client (https://www.thunderclient.com)"
+            }
+
+            let response = await fetch("https://v2.jokeapi.dev/joke/Spooky,Christmas", {
+                method: "GET",
+                headers: headersList
+            });
+
+            let data = await response.json();
+            resultadoDiv.textContent = `Pregunta: ${data.setup}\nRespuesta: ${data.delivery}`;
+        })
+    </script>
+    <script>
+        document.getElementById("btnPeticionPromesa").addEventListener("click", function () {
+            let headersList = {
+                "Accept": "*/*",
+                "User-Agent": "Thunder Client (https://www.thunderclient.com)"
+            }
+
+            let response = fetch("https://v2.jokeapi.dev/joke/Spooky,Christmas")
+                .then(response => response.json())
+                .then(data => {
+                    resultadoDiv.textContent = `Pregunta: ${data.setup}\nRespuesta: ${data.delivery}`;
+                });
+        })
+    </script>
+    <script>
+        document.getElementById("btnPeticionXMLHttp").addEventListener("click", async function () {
+            const data = null;
+
+            const xhr = new XMLHttpRequest();
+            //xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === this.DONE) {
+                    const responseData = JSON.parse(this.responseText);
+                    resultadoDiv.textContent = `Pregunta: ${responseData.setup}\nRespuesta: ${responseData.delivery}`;
+                }
+            });
+
+            xhr.open("GET", "https://v2.jokeapi.dev/joke/Spooky,Christmas");
+            xhr.setRequestHeader("Accept", "*/*");
+            //xhr.setRequestHeader("User-Agent", "Thunder Client (https://www.thunderclient.com)");
+
+            xhr.send(data);
+        })
+    </script>
+    <script>        
+        document.getElementById("btnPeticionAxios").addEventListener("click", async function () {
+            try {
+                let headersList = {
+                    "Accept": "*/*",
+                }
+
+                let response = await axios.get("https://v2.jokeapi.dev/joke/Spooky,Christmas", {
+                    headers: headersList
+                });
+
+                let data = response.data;
+                resultadoDiv.textContent = `Pregunta: ${data.setup}\nRespuesta: ${data.delivery}`;
+            } catch (error) {
+                console.error('Error al obtener los datos de la API:', error);
+            }
+        });
+    </script>
+    <script>
+        document.getElementById("btnPeticionJQuery").addEventListener("click", function () {
+            $.ajax({
+                url: "https://v2.jokeapi.dev/joke/Spooky,Christmas",
+                method: "GET",
+                headers: {
+                    "Accept": "*/*",
+                },
+                success: function (data) {
+                    resultadoDiv.textContent = `Pregunta: ${data.setup}\nRespuesta: ${data.delivery}`;
+                },
+                error: function (error) {
+                    console.error('Error al obtener los datos de la API:', error);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

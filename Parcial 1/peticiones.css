@@ -1,0 +1,19 @@
+*{
+    margin:100;
+    padding:10px;
+    background-color: rgb(93, 181, 233);
+    font-size:50px;
+    border-radius: 10px;
+    grid:10px;
+}
+.boton{
+    background-color:crimson;
+}
+.boton:hover{
+    background-color: brown;
+}
+#titulo{
+    font-size:60px;
+    font-style:italic;
+    text-align: center;
+}
