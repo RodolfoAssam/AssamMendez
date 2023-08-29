@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="modulo.css">
+</head>
+
+<body>
+    <button id="NumerosFrances">
+        Obtener Numeros En Frances
+    </button>
+</body>
+
+<script type="module">
+    import * as obtieneNumero from './index.js';
+
+    const botonNumerosFrances = document.getElementById("NumerosFrances");
+
+    // Asincrona
+    botonNumerosFrances.addEventListener("click", async () => {
+
+        const resultadoAsync = await obtieneNumero.obtieneNumeros(3);
+        console.log(resultadoAsync);
+    });
+    //
+    
+
+    /*
+    // Sincrono
+    botonNumerosFrances.addEventListener("click", () => {
+        // Llamada a la función de manera síncrona
+        const resultadoSync = obtieneNumero.obtieneNumeros(3);
+        console.log(resultadoSync);
+    });
+    */
+</script>
+
+</html>
