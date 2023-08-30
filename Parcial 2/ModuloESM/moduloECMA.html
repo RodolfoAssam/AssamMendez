@@ -12,18 +12,20 @@
     <button id="NumerosFrances">
         Obtener Numeros En Frances
     </button>
+    <div id="resultado"></div>
 </body>
 
 <script type="module">
     import * as obtieneNumero from './index.js';
 
     const botonNumerosFrances = document.getElementById("NumerosFrances");
-
+    const resultadoDiv = document.getElementById("resultado");
+    
     // Asincrona
     botonNumerosFrances.addEventListener("click", async () => {
-
-        const resultadoAsync = await obtieneNumero.obtieneNumeros(3);
-        console.log(resultadoAsync);
+        const indice = 3; // mostraría el indice 3 del arreglo 
+        const resultadoAsync = obtieneNumero.obtieneNumeros(indice);
+        resultadoDiv.textContent = resultadoAsync;
     });
     //
     
@@ -31,9 +33,9 @@
     /*
     // Sincrono
     botonNumerosFrances.addEventListener("click", () => {
-        // Llamada a la función de manera síncrona
-        const resultadoSync = obtieneNumero.obtieneNumeros(3);
-        console.log(resultadoSync);
+        const indice = 3; // mostraría el indice 3 del arreglo 
+        const resultadoSync = obtieneNumero.obtieneNumeros(indice);
+        resultadoDiv.textContent = resultadoSync;
     });
     */
 </script>

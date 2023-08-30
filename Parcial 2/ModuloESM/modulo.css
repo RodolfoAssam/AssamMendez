@@ -2,6 +2,8 @@ body {
     background-image: url(https://e1.pxfuel.com/desktop-wallpaper/868/209/desktop-wallpaper-paris-france-landscape-paris-computer-pretty.jpg);
     background-repeat: no-repeat;
     background-size:cover;
+    color:white;
+    font-size:100px;
 }
 #NumerosFrances{
     font-size:50px;

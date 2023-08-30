@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Paquete que contiene los números 1 al 10 en Francés",
   "main": "index.js",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "type": "module"
@@ -17,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/RodolfoAssam/PaqueteRodoZahir/issues"
   },
-  "homepage": "https://github.com/RodolfoAssam/PaqueteRodoZahir#readme"
+  "homepage": "https://github.com/RodolfoAssam/PaqueteRodoZahir#readme",
+  "dependencies": {
+    "jspdf": "^2.5.1"
+  }
 }
