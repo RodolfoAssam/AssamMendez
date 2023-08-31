@@ -1,43 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="modulo.css">
 </head>
-
 <body>
-    <button id="NumerosFrances">
-        Obtener Numeros En Frances
-    </button>
-    <div id="resultado"></div>
+    <div>
+        <button>Sincrono</button>
+        <div id="Divsito"></div>
+    </div>
+    <script type="module">
+        import * as myModule from "./index.js";
+
+        document.getElementById('botonAsincrono').addEventListener("click",async ()=>{
+            await import('./index.js').then(module => {
+                document.getElementById('Divsito').innerText = module.obtieneNumeros(3);
+            })
+        });
+        document.getElementById('botonSincrono').addEventListener("click",()=>{
+            document.getElementById('Divsito').innterText=myModule.obtieneNumeros(3);
+        })
+    </script>
 </body>
-
-<script type="module">
-    import * as obtieneNumero from './index.js';
-
-    const botonNumerosFrances = document.getElementById("NumerosFrances");
-    const resultadoDiv = document.getElementById("resultado");
-    
-    // Asincrona
-    botonNumerosFrances.addEventListener("click", async () => {
-        const indice = 3; // mostraría el indice 3 del arreglo   El Asincrono Se Debe Cargar Dentro
-        const resultadoAsync = obtieneNumero.obtieneNumeros(indice);
-        resultadoDiv.textContent = resultadoAsync;
-    });
-    //
-    
-
-    
-    // Sincrono
-    botonNumerosFrances.addEventListener("click", () => {
-        const indice = 3; // mostraría el indice 3 del arreglo 
-        const resultadoSync = obtieneNumero.obtieneNumeros(indice);
-        resultadoDiv.textContent = resultadoSync;
-    });
-    
-</script>
-
 </html>
