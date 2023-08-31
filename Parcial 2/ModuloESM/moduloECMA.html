@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div>
-        <button>Sincrono</button>
+        <button id="botonSincrono">Sincrono</button>
+        <button id="botonAsincrono">Asincrono</button>
         <div id="Divsito"></div>
     </div>
     <script type="module">
         import * as myModule from "./index.js";
 
-        document.getElementById('botonAsincrono').addEventListener("click",async ()=>{
+        document.getElementById('botonAsincrono').addEventListener("click", async () => {
             await import('./index.js').then(module => {
                 document.getElementById('Divsito').innerText = module.obtieneNumeros(3);
             })
         });
-        document.getElementById('botonSincrono').addEventListener("click",()=>{
-            document.getElementById('Divsito').innterText=myModule.obtieneNumeros(3);
+        document.getElementById('botonSincrono').addEventListener("click", () => {
+            document.getElementById('Divsito').innerText = myModule.obtieneNumeros(4);
+
         })
     </script>
 </body>
+
 </html>
