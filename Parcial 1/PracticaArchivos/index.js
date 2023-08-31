@@ -6,11 +6,11 @@ const { jsPDF } = require("jspdf"); // will automatically load the node version
 //console.log(_filename);
 
 //Generacion de un archivo de texto con el modulo FS usando callbacks
-fsc.writeFile(path.join(__dirname,'archivoc.txt'),"archivo creado api callback",(err)=>{
+fsc.writeFile(path.join(__dirname,'DocumentoChiste.txt'),"¿Qué hace una abeja en el gimnasio? ¡Zum-ba!",(err)=>{
     if (err){
         console.log(err)
     } else {
-        console.log("Archivo creado con el api fs callback")
+        console.log("¿qué hace una abeja en el gimnasio? ¡Zum-ba!")
     }
 });
 
