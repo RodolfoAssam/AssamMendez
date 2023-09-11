@@ -1,0 +1,8 @@
+::ffff:127.0.0.1 - - [11/Sep/2023:13:43:42 +0000] "GET /vehiculo HTTP/1.1" 200 521 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [11/Sep/2023:13:44:07 +0000] "GET /vehiculo/1 HTTP/1.1" 404 149 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [11/Sep/2023:13:44:22 +0000] "GET /vehiculo/ford HTTP/1.1" 404 152 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [11/Sep/2023:13:44:38 +0000] "GET /vehiculo/ford HTTP/1.1" 404 152 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [11/Sep/2023:13:44:46 +0000] "GET /vehiculo/ford HTTP/1.1" 200 31 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [11/Sep/2023:13:45:09 +0000] "GET /vehiculo/ford HTTP/1.1" 200 31 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [11/Sep/2023:13:45:11 +0000] "GET /vehiculo/ford HTTP/1.1" 200 31 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [11/Sep/2023:13:45:30 +0000] "GET /vehiculo HTTP/1.1" 200 521 "-" "Thunder Client (https://www.thunderclient.com)"

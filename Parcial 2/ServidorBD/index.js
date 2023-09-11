@@ -20,18 +20,18 @@ app.post("/ServidorExpress",(req,res)=>{res.send("Servidor express contestando a
 */
 
 //MySQL2 Usando promesas
-app.get("/usuarios", (req, res) => {
-    mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: 'crud' })
-        .then(conn => conn.query('SELECT * from cusuario'))
+app.get("/vehiculo", (req, res) => {
+    mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '19100794' })
+        .then(conn => conn.query('SELECT * from vehiculo'))
         .then(([rows, fields]) => res.json(rows));
 });
 //Async Await
-app.get("/usuarios:id", async (req, res) => {
+app.get("/vehiculo/:modelo", async (req, res) => {
     try {
-        const conn = await mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: 'crud' })
-        const [rows, fields] = await conn.query('SELECT * from cusuario from cusuario where idusuario=' + req.params.id);
+        const conn = await mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '19100794' })
+        const [rows, fields] = await conn.query('SELECT * from vehiculo where modelo = ' + req.params.modelo);
         if (rows.lenght == 0) {
-            res.json({ mensaje: "Usuario No Existe" });
+            res.json({ mensaje: "Modelo No Existe" });
         } else {
             res.json(rows);
         }
