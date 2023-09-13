@@ -20,26 +20,27 @@ app.post("/ServidorExpress",(req,res)=>{res.send("Servidor express contestando a
 */
 
 //MySQL2 Usando promesas
-app.get("/vehiculo", (req, res) => {
+app.get("/carro", (req, res) => {
     mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '19100794' })
-        .then(conn => conn.query('SELECT * from vehiculo'))
+        .then(conn => conn.query('SELECT * from carro'))
         .then(([rows, fields]) => res.json(rows));
 });
 //Async Await
-app.get("/vehiculo/:modelo", async (req, res) => {
-    try {
+app.get("/carro/:modelo", async (req, res) => {
         const conn = await mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '19100794' })
-        const [rows, fields] = await conn.query('SELECT * from vehiculo where modelo = ' + req.params.modelo);
+        const [rows, fields] = await conn.query("SELECT * from carro where modelo = '" + req.params.modelo+"'");
         if (rows.lenght == 0) {
             res.json({ mensaje: "Modelo No Existe" });
         } else {
             res.json(rows);
         }
-        res.json(rows);
-    } catch {
-        res.json({ mensaje: "Error de conexion" });
-    }
 });
+
+app.delete("/carro",async (req,res)=>{
+    const conn = await mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '19100794' })
+    cost [rows,fields] = await conn.query('delete from carro where id=$(req,query.id)');
+    console.log(rows);
+})
 
 app.listen(8080, (req, res) => {
     console.log("Servidor express escuchando")
