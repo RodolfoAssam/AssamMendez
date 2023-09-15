@@ -36,12 +36,67 @@ app.get("/carro/:modelo", async (req, res) => {
         }
 });
 
-app.delete("/carro",async (req,res)=>{
+//Eliminar
+app.delete("/carro", async (req, res) => {
     const conn = await mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '19100794' })
-    cost [rows,fields] = await conn.query('delete from carro where id=$(req,query.id)');
+    const [rows, fields] = await conn.query(`delete from carro where id = ${req.query.id}`);
+    if (rows.affectedRows) {
+        res.json({ mensaje: "Registro Eliminado" });
+    } else {
+        res.json({ mensaje: "Registro No Encontrado" });
+    }
     console.log(rows);
 })
 
 app.listen(8080, (req, res) => {
     console.log("Servidor express escuchando")
-})
+});
+
+//Insertar
+app.post("/carro", async (req, res) => {
+    try {
+        const conn = await mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '19100794' });
+        const id = req.body['id'];
+        const modelo = req.body['modelo'];
+        const año = req.body['año'];
+        const marca = req.body['marca'];
+
+        const [result] = await conn.query("INSERT INTO carro (id, modelo, año, marca) VALUES (?, ?, ?, ?)", [id, modelo, año, marca]);
+        if (result.affectedRows === 1) {
+            res.json({ mensaje: "Registro Insertado" });
+        } else {
+            res.json({ mensaje: "Error al insertar el registro" });
+        }
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ mensaje: "Error interno del servidor" });
+    }
+});
+
+//Actualizar
+app.patch("/carro", async (req, res) => {
+    try {
+        const conn = await mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '19100794' });
+        const carroId = req.query.id;
+        const { modelo, año, marca } = req.body;
+        const updateData = {};
+        if (modelo) updateData.modelo = modelo;
+        if (año) updateData.año = año;
+        if (marca) updateData.marca = marca;
+
+        const query = "UPDATE carro SET ? WHERE id = ?";
+        const [result] = await conn.query(query, [updateData, carroId]);
+
+        if (result.affectedRows === 1) {
+            res.json({ mensaje: "Registro Actualizado" });
+        } else {
+            res.json({ mensaje: "Error al actualizar el registro" });
+        }
+
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ mensaje: "Error interno del servidor" });
+    }
+});
