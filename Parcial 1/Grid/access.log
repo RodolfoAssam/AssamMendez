@@ -1,0 +1,8 @@
+::1 - - [20/Sep/2023:20:56:35 +0000] "GET /carros HTTP/1.1" 404 145 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0"
+::1 - - [20/Sep/2023:20:56:47 +0000] "GET /carros HTTP/1.1" 404 145 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0"
+::1 - - [20/Sep/2023:20:58:24 +0000] "GET /carros HTTP/1.1" 404 145 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0"
+::1 - - [20/Sep/2023:20:58:36 +0000] "GET /carros HTTP/1.1" 404 145 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0"
+::1 - - [20/Sep/2023:20:58:48 +0000] "GET /carros HTTP/1.1" 404 145 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0"
+::1 - - [20/Sep/2023:20:58:51 +0000] "GET /carros HTTP/1.1" 404 145 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0"
+::1 - - [20/Sep/2023:20:59:21 +0000] "GET /carros HTTP/1.1" 404 145 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0"
+::1 - - [20/Sep/2023:20:59:21 +0000] "GET /carros HTTP/1.1" 404 145 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0"
