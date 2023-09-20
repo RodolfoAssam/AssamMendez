@@ -18,7 +18,6 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Los datos se agregarán aquí dinámicamente -->
         </tbody>
     </table>
 
@@ -26,17 +25,10 @@
         async function getCars() {
             const response = await fetch('http://localhost:8080/carros');
             const data = await response.json();
-
-            // Obtener la tabla
             const table = document.getElementById('carTable');
-
-            // Obtener el cuerpo de la tabla
             const tbody = table.querySelector('tbody');
-
-            // Limpiar cualquier contenido existente en el cuerpo de la tabla
             tbody.innerHTML = '';
 
-            // Iterar a través de los datos y agregar filas a la tabla
             data.forEach(carro => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
@@ -50,7 +42,5 @@
         }
         getCars();
     </script>
-
-    <!-- Resto de tu código HTML -->
 </body>
 </html>
