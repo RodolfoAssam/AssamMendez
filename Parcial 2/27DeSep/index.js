@@ -56,9 +56,9 @@ app.listen(8080, (req, res) => {
 
 //Insertar
 app.post("/carro", async (req, res) => {
+    res.json(req.body);
     try {
         const conn = await mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '19100794' });
-        console.log(req.body);
         const id = req.body['id'];
         const modelo = req.body['modelo'];
         const año = req.body['año'];
