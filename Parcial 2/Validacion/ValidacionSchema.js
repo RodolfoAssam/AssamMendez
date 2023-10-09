@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.post("/usuario", checkSchema({
-    'edad': { notEmpty:true },
+    'edad': { notEmpty:true, errorMessage: 'Edad no puede ser vacio' },
     'email': { isEmail: true, errorMessage: 'Email debe ser un correo' }
 }),
     (req, res) => {
