@@ -1,0 +1,19 @@
+{
+  "name": "paqueterodozahir",
+  "version": "1.0.0",
+  "description": "Paquete que contiene los números 1 al 10 en Francés",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RodolfoAssam/PaqueteRodoZahir.git"
+  },
+  "author": "Rodolfo Zahir Assam Méndez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RodolfoAssam/PaqueteRodoZahir/issues"
+  },
+  "homepage": "https://github.com/RodolfoAssam/PaqueteRodoZahir#readme"
+}
