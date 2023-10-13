@@ -15,7 +15,7 @@ let numerosenfrances=[
 /**
  * 
  * @param {number} indice Numeros en frances 
- * @returns 
+ * 
  */
 
 function obtieneNumeros(indice){

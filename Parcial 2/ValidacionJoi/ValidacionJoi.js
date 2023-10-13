@@ -2,7 +2,7 @@ const express = require('express');
 const joi = require('joi')
 const app = express();
 const {registroEsquema} = require('./schema/registro')
-const validation = require('./middleware/JoiValidation')
+const validation = require('./middleware/ValidacionJoi')
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
