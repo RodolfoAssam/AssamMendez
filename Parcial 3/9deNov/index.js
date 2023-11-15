@@ -3,74 +3,11 @@ const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const mysql = require('mysql2/promise');
-const swaggerUI = require('swagger-ui-express')
-const swaggerJsDoc = require('swagger-jsdoc')
-const { SwaggerTheme } = require('swagger-themes');
-const redoc = require('redoc-express');
+const swaggerUI     = require('swagger-ui-express');
+const swaggerJsDoc  = require('swagger-jsdoc');
 const app = express();
 
-const theme = new SwaggerTheme('v3');
 
-const options = {
-  explorer: true,
-  customCss: theme.getBuffer('outline')
-};
-
-const def = fs.readFileSync(path.join(__dirname,'./swagger.json'),
-    {encoding:'utf8',flags:'r'});
-
-const read = fs.readFileSync(path.join(__dirname,'./README.md'),
-    {encoding:'utf8',flags:'r'});
-
-const defObj = JSON.parse(def);
-defObj.info.description = read;
-
-const swaggerOptions = {
-    definition:defObj,
-    apis: [`${path.join(__dirname, "./index.js")}`]
-}
-
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use("/api-docs",swaggerUI.serve,swaggerUI.setup(swaggerDocs,options));
-
-app.use("/api-docs-json",(req,res)=>{
-    res.json(swaggerDocs);
-});
-
-
-
-app.get(
-    '/api-docs-redoc',
-    redoc({
-      title: 'API Docs',
-      specUrl: '/api-docs-json',
-      nonce: '', // <= it is optional,we can omit this key and value
-      // we are now start supporting the redocOptions object
-      // you can omit the options object if you don't need it
-      // https://redocly.com/docs/api-reference-docs/configuration/functionality/
-      redocOptions: {
-        theme: {
-          colors: {
-            primary: {
-              main: '#6EC5AB'
-            }
-          },
-          typography: {
-            fontFamily: `"museo-sans", 'Helvetica Neue', Helvetica, Arial, sans-serif`,
-            fontSize: '15px',
-            lineHeight: '1.5',
-            code: {
-              code: '#87E8C7',
-              backgroundColor: '#4D4D4E'
-            }
-          },
-          menu: {
-            backgroundColor: '#ffffff'
-          }
-        }
-      }
-    })
-  );
 
 var accessLogStream = fs.createWriteStream(path.join(__dirname,'access.log'),{flags:'a'})
 app.use(morgan('combined', {stream: accessLogStream}));
@@ -90,23 +27,21 @@ app.post("/ServidorExpress",(req,res)=>{res.send("Servidor express contestando a
 
 /**
  * @swagger
- * /Carro/:
+ * /carro/:
  *   get:
  *     tags:
- *       - Carros
- *     summary: Consultar todos los carros
- *     description: Obtiene Json que con todos los carros de la Base de Datos
+ *       - carro
+ *     summary: Consulta usuarios especificos 
+ *     description: Obtiene usuario carro
  *     responses:
  *       200:
- *         description: Regresa un Json con todos los carros
- */
-
+ *         description: Regresa un Json con todos los usuarios carro
+ **/
 app.get("/carro", (req, res) => {
     mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '19100794' })
         .then(conn => conn.query('SELECT * from carro'))
         .then(([rows, fields]) => res.json(rows));
 });
-
 //Async Await
 app.get("/carro/:modelo", async (req, res) => {
         const conn = await mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '19100794' })
@@ -182,3 +117,20 @@ app.patch("/carro", async (req, res) => {
         res.status(500).json({ mensaje: "Error interno del servidor" });
     }
 });
+
+const swaggerOptions = {
+    definition: {
+    openapi: '3.0.0',
+    info: {
+    title: 'API Empleados',
+    version: '1.0.0',
+    },
+    servers:[
+    {url: "http://localhost:8080"}
+    ],
+    },
+    apis: [`${path.join(__dirname,"./index.js")}`],
+    };
+
+    console.log(path.join(__dirname,__filename));
+    const swaggerDocs = swaggerJsDoc(swaggerOptions);app.use("/api-docs",swaggerUI.serve,swaggerUI.setup(swaggerDocs));

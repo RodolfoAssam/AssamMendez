@@ -10,9 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.18.2",
+    "express-basic-auth": "^1.2.1",
     "morgan": "^1.10.0",
     "mssql": "^10.0.0",
-    "mysql2": "^3.6.1"
+    "mysql2": "^3.6.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-themes": "^1.2.30",
+    "swagger-ui-express": "^5.0.0"
   }
 }
