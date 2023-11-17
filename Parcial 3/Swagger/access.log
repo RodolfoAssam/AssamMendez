@@ -55,3 +55,7 @@
 ::ffff:127.0.0.1 - - [15/Sep/2023:13:18:59 +0000] "PATCH /carro?id=11 HTTP/1.1" 200 34 "-" "Thunder Client (https://www.thunderclient.com)"
 ::ffff:127.0.0.1 - - [15/Sep/2023:13:20:14 +0000] "DELETE /carro?id=11 HTTP/1.1" 200 32 "-" "Thunder Client (https://www.thunderclient.com)"
 ::1 - - [15/Nov/2023:14:56:52 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8080/api-docs-redoc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+::1 - - [17/Nov/2023:14:04:22 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8080/api-docs-json" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [17/Nov/2023:14:07:10 +0000] "PATCH /carro?id=2 HTTP/1.1" 200 45 "-" "Thunder Client (https://www.thunderclient.com)"
+::1 - - [17/Nov/2023:14:07:13 +0000] "GET /carro HTTP/1.1" 200 287 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+::1 - - [17/Nov/2023:14:07:42 +0000] "GET /Carro HTTP/1.1" 200 287 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"

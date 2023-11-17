@@ -90,17 +90,24 @@ app.post("/ServidorExpress",(req,res)=>{res.send("Servidor express contestando a
 
 /**
  * @swagger
- * /Carro/:
+ * /carro/:
  *   get:
  *     tags:
  *       - Carros
  *     summary: Consultar todos los carros
  *     description: Obtiene Json que con todos los carros de la Base de Datos
+ *     parameters:
+ *         - name: modelo
+ *           in: path
+ *           description: Modelo del carro
+ *           required: true
+ *           schema:
+ *             type: integer
+ *             format: int64
  *     responses:
  *       200:
  *         description: Regresa un Json con todos los carros
  */
-
 app.get("/carro", (req, res) => {
     mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '19100794' })
         .then(conn => conn.query('SELECT * from carro'))
