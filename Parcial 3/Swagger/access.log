@@ -59,3 +59,7 @@
 ::ffff:127.0.0.1 - - [17/Nov/2023:14:07:10 +0000] "PATCH /carro?id=2 HTTP/1.1" 200 45 "-" "Thunder Client (https://www.thunderclient.com)"
 ::1 - - [17/Nov/2023:14:07:13 +0000] "GET /carro HTTP/1.1" 200 287 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
 ::1 - - [17/Nov/2023:14:07:42 +0000] "GET /Carro HTTP/1.1" 200 287 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+::1 - - [23/Nov/2023:14:52:01 +0000] "GET /carro HTTP/1.1" 200 287 "-" "-"
+::1 - - [23/Nov/2023:14:52:01 +0000] "GET /carro HTTP/1.1" 200 287 "-" "-"
+::1 - - [23/Nov/2023:14:52:01 +0000] "POST /carro HTTP/1.1" 500 40 "-" "-"
+::1 - - [23/Nov/2023:14:52:01 +0000] "GET /carro HTTP/1.1" 200 287 "-" "-"
