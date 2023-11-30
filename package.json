@@ -7,11 +7,14 @@
     "express": "^4.18.2",
     "express-bearer-token": "^2.4.0",
     "express-validator": "^7.0.1",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
     "mocha": "^10.2.0",
     "morgan": "^1.10.0",
-    "mysql2": "^3.6.1",
+    "mysql2": "^3.6.5",
     "openapi-snippet": "^0.14.0",
-    "swagger-jsdoc": "^6.2.8"
+    "redoc-express": "^2.1.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
   }
 }
