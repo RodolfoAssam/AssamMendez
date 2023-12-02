@@ -105,18 +105,22 @@ app.use(express.json());
  *             format: string
  *     responses:
  *       200:
- *         description: Regresa un Json con todos los carros
+ *         description: Regresa un Json con la información del modelo de carro especificado
+ *       404:
+ *         description: Carro no encontrado
+ *       500:
+ *         description: Error interno del servidor
  *
- * /carros{id}:
+ * /carro/{id}:
  *   delete:
  *     tags:
  *       - Carros
  *     summary: Eliminar un carro
  *     description: Elimina un carro de la Base de Datos
  *     parameters:
- *         - name: modelo
+ *         - name: id
  *           in: path
- *           description: Modelo del carro
+ *           description: id del carro
  *           required: true
  *           schema:
  *             type: integer
@@ -134,7 +138,7 @@ app.use(express.json());
  *     tags:
  *       - Carros
  *     summary: Insertar un nuevo carro
- *     description: Obtiene Json que con todos los carros de la Base de Datos
+ *     description: Añade nuevos datos de un carro a la Base de Datos
  *     requestBody:
  *       required: true
  *       content:
@@ -157,17 +161,37 @@ app.use(express.json());
  *     responses:
  *       200:
  *         description: Añade un registro
+ *       404:
+ *         description: No se pudo añadir el registro
+ *       500:
+ *         description: Error interno del servidor
  *
- * /carro{modelo}:
+ * /carro?id={id}:
  *   patch:
  *     tags:
  *       - Carros
- *     summary: Consultar todos los carros
- *     description: Obtiene Json que con todos los carros de la Base de Datos
+ *     summary: Actualiza la informacion del carro
+ *     description: Se realiza una actualización de la información del carro
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               modelo:
+ *                 type: string
+ *                 description: modelo del carro
+ *               año:
+ *                 type: integer
+ *                 description: año del carro
+ *               marca:
+ *                 type: string
+ *                 description: marca del carro
  *     parameters:
- *         - name: modelo
+ *         - name: id
  *           in: path
- *           description: Modelo del carro
+ *           description: id del carro
  *           required: true
  *           schema:
  *             type: integer
@@ -175,6 +199,10 @@ app.use(express.json());
  *     responses:
  *       200:
  *         description: Actualiza un registro
+ *       404:
+ *         description: No se pudo actualizar el registro
+ *       500:
+ *         description: Error interno del servidor
  */
 
 //Async Await
@@ -224,7 +252,6 @@ app.post("/carroso", async (req, res) => {
         } else {
             res.json({ mensaje: "Error al insertar el registro" });
         }
-        console.log(result);
     } catch (error) {
         console.error(error);
         res.status(500).json({ mensaje: "Error interno del servidor" });
@@ -250,8 +277,6 @@ app.patch("/carro", async (req, res) => {
         } else {
             res.json({ mensaje: "Error al actualizar el registro" });
         }
-
-        console.log(result);
     } catch (error) {
         console.error(error);
         res.status(500).json({ mensaje: "Error interno del servidor" });
