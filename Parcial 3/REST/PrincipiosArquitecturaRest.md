@@ -5,16 +5,16 @@ Primero debemos conocer el significado de la arquitectura REST, el es: Represent
 ## Interfaz Uniforme
 Este principio es la piedra angular de REST y dicta que la interfaz entre el cliente y el servidor debe ser uniforme y consistente. Se divide en cuatro sub-principios:
 
-### Identificación de recursos
+- ### Identificación de recursos
 Cada recurso en el sistema REST debe ser identificable de forma única a través de un URI (Uniform Resource Identifier). Por ejemplo, en una API para un blog, podrías tener un URI como `/articles` para acceder a los artículos.
 
-### Manipulación de recursos a través de representaciones
+- ### Manipulación de recursos a través de representaciones
 Los clientes interactúan con los recursos utilizando representaciones, típicamente en formatos como JSON o XML. Por ejemplo, cuando un cliente solicita un recurso, puede recibir una representación de ese recurso en JSON. Al modificar recursos, el cliente envía una representación modificada al servidor.
 
-### Mensajes auto-descriptivos
+- ### Mensajes auto-descriptivos
 Los mensajes HTTP (solicitudes y respuestas) deben contener toda la información necesaria para ser comprendidos, incluyendo metadatos (como encabezados HTTP) y datos aplicables (como el cuerpo del mensaje).
 
-### Hipermedia como motor del estado de la aplicación (HATEOAS)
+- ### Hipermedia como motor del estado de la aplicación (HATEOAS)
 Este concepto implica que las respuestas del servidor deben incluir hipervínculos a otros recursos y acciones relacionadas, permitiendo al cliente navegar dinámicamente entre ellos. Por ejemplo, una respuesta con detalles de un artículo podría incluir enlaces para editar o eliminar ese artículo.
 
 ## Sin Estado (Stateless)
